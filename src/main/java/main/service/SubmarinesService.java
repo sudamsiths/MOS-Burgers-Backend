@@ -47,11 +47,14 @@ public class SubmarinesService {
     }
 
     public SubmarinesDTO searchSubmarines(String title) {
-        Optional<SubmarinesEntity> submarinesEntity = submarinesRepository.findById(Long.valueOf(title));
-        if (submarinesEntity.isPresent()) {
-            return modelMapper.map(submarinesEntity.get(), SubmarinesDTO.class);
+        Optional<SubmarinesEntity> submarinesEntity = submarinesRepository.findByTitle(title);
+        List<SubmarinesDTO>submarinesDTOS= new ArrayList<>();
+        if (submarinesEntity.isPresent()){
+            SubmarinesDTO submarinesDTO = modelMapper.map(submarinesEntity.get(), SubmarinesDTO.class);
+            submarinesDTOS.add(submarinesDTO);
+            return submarinesDTO;
         } else {
-            throw new RuntimeException("Submarine with title " + title + " not found");
+            throw new RuntimeException("Submarine with title '" + title + "' does not exist.");
         }
     }
 }

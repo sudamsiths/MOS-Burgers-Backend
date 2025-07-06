@@ -34,7 +34,7 @@ public class BeverageService {
     }
 
     public List<BeverageDTO> searchBeverages(String title) {
-        Optional<BeverageEntity> byId = beverageRepository.findById(Long.valueOf(title));
+        Optional<BeverageEntity> byId = beverageRepository.findByTitle(title);
         List<BeverageDTO> beverageDTOS = new ArrayList<>();
         if (byId.isPresent()) {
             BeverageEntity beverageEntity = byId.get();

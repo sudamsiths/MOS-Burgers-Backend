@@ -43,7 +43,7 @@ public class BurgerService {
     }
 
     public List<BurgerDTO> searchBurgers(String title) {
-        Optional<BurgerEntity> byId = burgerRepository.findById(Long.valueOf(title));
+        Optional<BurgerEntity> byId = burgerRepository.findByTitle(title);
         List<BurgerDTO> burgerDTOS = new ArrayList<>();
         if (byId.isPresent()) {
             BurgerEntity burgerEntity = byId.get();

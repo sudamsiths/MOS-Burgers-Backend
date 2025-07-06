@@ -35,7 +35,7 @@ public class ChickenService {
     }
 
     public List<ChickenDTO> searchChicken(String title) {
-        Optional<ChickenEntity> chickenEntities = chickenRepository.findById(Long.valueOf(title));
+        Optional<ChickenEntity> chickenEntities = chickenRepository.findByTitle(title);
         List<ChickenDTO> chickenDTOS = new ArrayList<>();
         if (chickenEntities.isPresent()) {
             ChickenEntity chickenEntity = chickenEntities.get();

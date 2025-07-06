@@ -38,7 +38,7 @@ public class CustomerService {
     }
 
     public List<CustomerDTO> searchCustomer(String name) {
-        Optional<CustomerEntity> customerEntities = customerRepository.findById(Long.valueOf(name));
+        Optional<CustomerEntity> customerEntities = customerRepository.findByName(name);
         List<CustomerDTO> customerDTOS = new ArrayList<>();
         if (customerEntities.isPresent()) {
             CustomerEntity customerEntity = customerEntities.get();

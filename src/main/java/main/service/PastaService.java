@@ -44,7 +44,7 @@ public class PastaService {
     }
 
     public PastaDTO searchPasta(String title) {
-        Optional<PastaEntity> pastaEntity = pastaRepository.findById(Long.valueOf(title));
+        Optional<PastaEntity> pastaEntity = pastaRepository.findByTitle(title);
         if (pastaEntity.isPresent()) {
             return modelMapper.map(pastaEntity.get(), PastaDTO.class);
         } else {

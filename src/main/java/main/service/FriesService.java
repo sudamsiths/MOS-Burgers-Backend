@@ -35,15 +35,16 @@ public class FriesService {
     }
 
     public List<FriesDTO> searchFries(String title) {
-        Optional<FriesEntity> friesEntities = friesRepository.findById(Long.valueOf(title));
+        Optional<FriesEntity> friesEntity = friesRepository.findByTitle(title);
         List<FriesDTO> friesDTOS = new ArrayList<>();
-        if (!friesEntities.isEmpty()) {
-            FriesEntity friesEntity = friesEntities.get();
-            FriesDTO map = modelMapper.map(friesEntity, FriesDTO.class);
+
+        if (friesEntity.isPresent()) {
+            FriesDTO map = modelMapper.map(friesEntity.get(), FriesDTO.class);
             friesDTOS.add(map);
         } else {
-            throw new RuntimeException("Fries with title " + title + " does not exist.");
+            throw new RuntimeException("Fries with title '" + title + "' does not exist.");
         }
+
         return friesDTOS;
     }
 
