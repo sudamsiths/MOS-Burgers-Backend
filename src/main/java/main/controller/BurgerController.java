@@ -9,6 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/burger")
+@CrossOrigin
+
 public class BurgerController {
 
     @Autowired

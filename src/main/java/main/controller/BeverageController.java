@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/beverage")
+@CrossOrigin
 
 public class BeverageController {
 

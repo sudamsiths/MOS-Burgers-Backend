@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pasta")
+@CrossOrigin
+
 public class PastaController {
 
     @Autowired

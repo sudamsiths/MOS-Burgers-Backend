@@ -9,6 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/submarines")
+@CrossOrigin
+
 public class SubmarinesController {
 
     @Autowired

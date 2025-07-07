@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/chicken")
+@CrossOrigin
+
 public class ChickenController {
     @Autowired
     ChickenService chickenService;
