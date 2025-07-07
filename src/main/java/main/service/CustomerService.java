@@ -37,15 +37,15 @@ public class CustomerService {
         customerRepository.save(customerEntity);
     }
 
-    public List<CustomerDTO> searchCustomer(String name) {
-        Optional<CustomerEntity> customerEntities = customerRepository.findByName(name);
+    public List<CustomerDTO> searchCustomer(String phoneNumber) {
+        Optional<CustomerEntity> customerEntities = customerRepository.findByphoneNumber(phoneNumber);
         List<CustomerDTO> customerDTOS = new ArrayList<>();
         if (customerEntities.isPresent()) {
             CustomerEntity customerEntity = customerEntities.get();
             CustomerDTO map = modelMapper.map(customerEntity, CustomerDTO.class);
             customerDTOS.add(map);
         } else {
-            throw new RuntimeException("Customer with name " + name + " does not exist.");
+            throw new RuntimeException("Customer with name " + phoneNumber + " does not exist.");
         }
         return customerDTOS;
     }

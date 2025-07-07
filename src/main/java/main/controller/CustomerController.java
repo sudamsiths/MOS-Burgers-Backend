@@ -23,9 +23,9 @@ public class CustomerController {
     public void addCustomer(@RequestBody CustomerDTO customerDTO) {
         customerService.addCustomer(customerDTO);
     }
-    @GetMapping("/search/{name}")
-    public List<CustomerDTO> searchCustomer(@PathVariable String name) {
-        return customerService.searchCustomer(name);
+    @GetMapping("/search/{phoneNumber}")
+    public List<CustomerDTO> searchCustomer(@PathVariable String phoneNumber) {
+        return customerService.searchCustomer(phoneNumber);
     }
     @DeleteMapping("/delete/{name}")
     public void deleteCustomer(@PathVariable String name) {

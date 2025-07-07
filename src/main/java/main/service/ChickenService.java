@@ -38,6 +38,7 @@ public class ChickenService {
         Optional<ChickenEntity> chickenEntities = chickenRepository.findByTitle(title);
         List<ChickenDTO> chickenDTOS = new ArrayList<>();
         if (chickenEntities.isPresent()) {
+
             ChickenEntity chickenEntity = chickenEntities.get();
             ChickenDTO map = modelMapper.map(chickenEntity, ChickenDTO.class);
             chickenDTOS.add(map);
